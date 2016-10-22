@@ -23,7 +23,7 @@ def extract_images(bagfile, topicname, outputdir, compressed):
       cv_image = bridge.compressed_imgmsg_to_cv2(msg)
     else:
       cv_image = bridge.imgmsg_to_cv2(msg)
-    cv2.imwrite(outputdir + str(index) + ".jpg", cv_image)
+    cv2.imwrite(os.path.join(outputdir, str(index) + ".jpg"), cv_image)
     print ti
     index = index + 1
   bag.close()
